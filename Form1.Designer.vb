@@ -51,6 +51,7 @@ Partial Class MainForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.InstructionLabel = New System.Windows.Forms.Label()
         Me.QuickConverterButton = New System.Windows.Forms.Button()
+        Me.RyLabel = New System.Windows.Forms.Label()
         Me.Num1SelectGroupBox.SuspendLayout()
         Me.Num2SelectGroupBox.SuspendLayout()
         Me.OperationSelectGroupBox.SuspendLayout()
@@ -332,11 +333,22 @@ Partial Class MainForm
         Me.QuickConverterButton.Text = "Quick Converter"
         Me.QuickConverterButton.UseVisualStyleBackColor = True
         '
+        'RyLabel
+        '
+        Me.RyLabel.AutoSize = True
+        Me.RyLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RyLabel.Location = New System.Drawing.Point(549, 280)
+        Me.RyLabel.Name = "RyLabel"
+        Me.RyLabel.Size = New System.Drawing.Size(83, 12)
+        Me.RyLabel.TabIndex = 19
+        Me.RyLabel.Text = "Made by Ryan Bos"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 361)
+        Me.Controls.Add(Me.RyLabel)
         Me.Controls.Add(Me.QuickConverterButton)
         Me.Controls.Add(Me.InstructionLabel)
         Me.Controls.Add(Me.Label2)
@@ -399,4 +411,5 @@ Partial Class MainForm
     Friend WithEvents Label2 As Label
     Friend WithEvents InstructionLabel As Label
     Friend WithEvents QuickConverterButton As Button
+    Friend WithEvents RyLabel As Label
 End Class
