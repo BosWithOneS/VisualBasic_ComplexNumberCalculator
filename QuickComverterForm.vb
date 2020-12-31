@@ -18,7 +18,7 @@ Public Class QuickConverterForm
     Dim Answer_Part2 As Double
 
     Dim Accuarcy As Integer = 4 'For the number of decimal places the answer will show
-    Dim Pi As Double = 3.1415926535897931 'An accurate value of pi to use for calculations
+
 
     Public Function RectangularToPolarMagnitude(ByVal RectangularRealValue As Double, RectangularImaginaryValue As Double) As Double
         Dim ResultMagnitude As Double
@@ -40,7 +40,7 @@ Public Class QuickConverterForm
         ResultAngle = (Math.Atan((RectangularImaginaryValue / RectangularRealValue)))
 
         'Turns result into degrees
-        ResultAngle = (ResultAngle * 180) / Pi
+        ResultAngle = (ResultAngle * 180) / (Math.PI)
 
         'Keeps it to accuracy ammount of decimal places
         ResultAngle = Math.Round(ResultAngle, Accuarcy)
@@ -53,7 +53,7 @@ Public Class QuickConverterForm
         Dim ResultReal As Double
 
         'Get rectangular real
-        ResultReal = (PolarMagnitudeValue * (Math.Cos((PolarAngleValue * Pi) / 180)))
+        ResultReal = (PolarMagnitudeValue * (Math.Cos((PolarAngleValue * (Math.PI)) / 180)))
 
         'Keeps it to accuracy ammount of decimal places
         ResultReal = Math.Round(ResultReal, Accuarcy)
@@ -65,7 +65,7 @@ Public Class QuickConverterForm
         Dim ResultImaginary As Double
 
         'Get rectangular imaginary
-        ResultImaginary = (PolarMagnitudeValue * (Math.Sin((PolarAngleValue * Pi) / 180)))
+        ResultImaginary = (PolarMagnitudeValue * (Math.Sin((PolarAngleValue * (Math.PI)) / 180)))
 
         'Keeps it to accuracy ammount of decimal places
         ResultImaginary = Math.Round(ResultImaginary, Accuarcy)

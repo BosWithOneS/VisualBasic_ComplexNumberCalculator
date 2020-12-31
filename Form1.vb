@@ -37,7 +37,6 @@ Public Class MainForm
     Dim Answer_Part2 As Double
 
     Dim Accuarcy As Integer = 4 'For the number of decimal places the answer will show
-    Dim Pi As Double = 3.1415926535897931 'An accurate value of pi to use for calculations
 
     Public Function RectangularToPolarMagnitude(ByVal RectangularRealValue As Double, RectangularImaginaryValue As Double) As Double
         Dim ResultMagnitude As Double
@@ -52,6 +51,7 @@ Public Class MainForm
         Return ResultMagnitude
 
     End Function
+
     Public Function RectangularToPolarAngle(ByVal RectangularRealValue As Double, RectangularImaginaryValue As Double) As Double
         Dim ResultAngle As Double
 
@@ -59,7 +59,7 @@ Public Class MainForm
         ResultAngle = (Math.Atan((RectangularImaginaryValue / RectangularRealValue)))
 
         'Turns result into degrees
-        ResultAngle = (ResultAngle * 180) / Pi
+        ResultAngle = (ResultAngle * 180) / (Math.PI)
 
         'Keeps it to accuracy ammount of decimal places
         ResultAngle = Math.Round(ResultAngle, Accuarcy)
@@ -68,11 +68,12 @@ Public Class MainForm
         Return ResultAngle
 
     End Function
+
     Public Function PolarToRectangularReal(ByVal PolarMagnitudeValue As Double, PolarAngleValue As Double) As Double
         Dim ResultReal As Double
 
         'Get rectangular real
-        ResultReal = (PolarMagnitudeValue * (Math.Cos((PolarAngleValue * Pi) / 180)))
+        ResultReal = (PolarMagnitudeValue * (Math.Cos((PolarAngleValue * (Math.PI)) / 180)))
 
         'Keeps it to accuracy ammount of decimal places
         ResultReal = Math.Round(ResultReal, Accuarcy)
@@ -81,11 +82,12 @@ Public Class MainForm
         'Return Real part
         Return ResultReal
     End Function
+
     Public Function PolarToRectangularImaginary(ByVal PolarMagnitudeValue As Double, PolarAngleValue As Double) As Double
         Dim ResultImaginary As Double
 
         'Get rectangular imaginary
-        ResultImaginary = (PolarMagnitudeValue * (Math.Sin((PolarAngleValue * Pi) / 180)))
+        ResultImaginary = (PolarMagnitudeValue * (Math.Sin((PolarAngleValue * (Math.PI)) / 180)))
 
         'Keeps it to accuracy ammount of decimal places
         ResultImaginary = Math.Round(ResultImaginary, Accuarcy)
@@ -193,12 +195,12 @@ Public Class MainForm
 
         If DivideRadioButton.Checked Then
             'Numbers in polar
-            Answer_PolarMagnitude = (Num1_PolarMagnitude / Num2_PolarMagnitude)
-            Answer_PolarAngle = (Num1_PolarAngle - Num2_PolarAngle)
+            Answer_PolarMagnitude = Math.Round((Num1_PolarMagnitude / Num2_PolarMagnitude), Accuarcy)
+            Answer_PolarAngle = Math.Round((Num1_PolarAngle - Num2_PolarAngle), Accuarcy)
 
             'Numbers in rectangular
-            Answer_RectangularReal = PolarToRectangularReal(Answer_PolarMagnitude, Answer_PolarAngle)
-            Answer_RectangularImaginary = PolarToRectangularImaginary(Answer_PolarMagnitude, Answer_PolarAngle)
+            Answer_RectangularReal = Math.Round(PolarToRectangularReal(Answer_PolarMagnitude, Answer_PolarAngle), Accuarcy)
+            Answer_RectangularImaginary = Math.Round(PolarToRectangularImaginary(Answer_PolarMagnitude, Answer_PolarAngle), Accuarcy)
         End If
 
         If AnswerInPolarRadio.Checked Then
