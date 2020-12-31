@@ -6,7 +6,6 @@
 
 
 Public Class MainForm
-
     'Variable Declaration
 
     Dim Num1_Part1 As Double 'Num 1 real or magnutide
